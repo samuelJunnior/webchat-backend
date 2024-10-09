@@ -17,7 +17,8 @@
 
 ## Preview
 ![Preview](src/main/resources/static/webchat.gif)
-*Este GIF mostra a interface do usuário e a funcionalidade de mensagens em tempo real.*
+
+*[Video completo](https://vimeo.com/1018047598) que mostra a interface do usuário e a funcionalidade de mensagens em tempo real.*
 
 ## 💻 Tecnologias
 
