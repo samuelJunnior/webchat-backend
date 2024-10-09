@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: PostgreSQL
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - type: volume
+        source: postgres
+        target: /var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=rest_api_user_crud
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+  mongo:
+    image: mongo:latest
+    container_name: Mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: chatdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: mongo
+    ports:
+      - "8081:8081"
+
+volumes:
+  mongo-data:
